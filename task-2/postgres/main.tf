@@ -4,9 +4,14 @@ locals {
     "78.191.2.231"]
 }
 
+provider "google" {
+  credentials = "${file("/home/realvega/googleproj.json")}"
+  project     = "core-depth-264814"
+  region      = "europe-west6"
+}
 
 resource "google_sql_database_instance" "master" {
-  name = "master-instance"
+  name = "challenge-instance"
   database_version = "POSTGRES_11"
   region = "europe-west6"
   project = "core-depth-264814"
