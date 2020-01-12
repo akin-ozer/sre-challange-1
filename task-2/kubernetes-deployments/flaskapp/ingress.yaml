@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: flasapp-ingress
+spec:
+  rules:
+  - host: challenge.akinozer.com
+    http:
+      paths:
+      - backend:
+          serviceName: flask-webapp
+          servicePort: 5000

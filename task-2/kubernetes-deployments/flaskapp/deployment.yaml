@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-webapp
+  labels:
+    app: flask-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-webapp
+  template:
+    metadata:
+      labels:
+        app: flask-webapp
+    spec:
+      containers:
+      - name: flask-webapp
+        image: eu.gcr.io/core-depth-264814/flaskapp:latest
+        ports:
+        - containerPort: 5000
